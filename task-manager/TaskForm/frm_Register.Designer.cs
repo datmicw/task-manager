@@ -133,6 +133,7 @@
             this.btn_Create.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Create.TabIndex = 26;
             this.btn_Create.Values.Text = "Create";
+            this.btn_Create.Click += new System.EventHandler(this.btn_Create_Click);
             // 
             // label2
             // 

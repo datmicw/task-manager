@@ -22,5 +22,11 @@ namespace task_manager
         {
 
         }
+
+        private void btn_addWorkspace_Click(object sender, EventArgs e)
+        {
+            frm_Workspace frm_Workspace = new frm_Workspace();
+            frm_Workspace.ShowDialog();
+        }
     }
 }

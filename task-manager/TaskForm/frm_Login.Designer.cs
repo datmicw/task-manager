@@ -119,6 +119,7 @@
             this.btn_Login.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Login.TabIndex = 19;
             this.btn_Login.Values.Text = "Login";
+            this.btn_Login.Click += new System.EventHandler(this.btn_Login_Click);
             // 
             // label2
             // 

@@ -31,6 +31,10 @@ namespace task_manager
             registerForm.FormClosed += (s, args) => this.Show();
             registerForm.Show();
         }
+        public static class GlobalData
+        {
+            public static int LoggedInCustomerID;
+        }
 
         private void btn_Login_Click(object sender, EventArgs e)
         {
@@ -53,6 +57,7 @@ namespace task_manager
 
                 if (isPasswordValid)
                 {
+                    GlobalData.LoggedInCustomerID = CheckCustomer.Id;
                     frm_Home frm_Home = new frm_Home();
                     frm_Home.Show();
                     this.Hide();
@@ -67,7 +72,6 @@ namespace task_manager
                 MessageBox.Show("An error occurred: " + ex.Message);
             }
         }
-
 
     }
 }

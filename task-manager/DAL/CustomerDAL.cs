@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Data.SqlClient;
 using task_manager.Entities;
-using System.Data.Common;
 
 namespace task_manager.DAL
 {
@@ -12,6 +11,8 @@ namespace task_manager.DAL
         {
             databaseConnection = new DatabaseConnection();
         }
+
+        // Thêm khách hàng mới vào cơ sở dữ liệu
         public void AddCustomer(CustomerEnti customer)
         {
             using (SqlConnection connection = databaseConnection.GetConnection())
@@ -24,16 +25,17 @@ namespace task_manager.DAL
                     command.Parameters.AddWithValue("@Password", customer.Password);
                     connection.Open();
                     command.ExecuteNonQuery();
-                    connection.Close();
                 }
             }
         }
+
+        // Lấy thông tin khách hàng dựa trên email
         public CustomerEnti GetCustomerByEmail(string email)
         {
             CustomerEnti customer = null;
             using (SqlConnection connection = databaseConnection.GetConnection())
             {
-                string query = "SELECT EMAIL, PASSWORD FROM CUSTOMER WHERE EMAIL = @Email";
+                string query = "SELECT ID, EMAIL, PASSWORD FROM CUSTOMER WHERE EMAIL = @Email";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@Email", email);
@@ -44,6 +46,7 @@ namespace task_manager.DAL
                         {
                             customer = new CustomerEnti
                             {
+                                Id = Convert.ToInt32(reader["ID"]),
                                 Email = reader["EMAIL"].ToString(),
                                 Password = reader["PASSWORD"].ToString()
                             };

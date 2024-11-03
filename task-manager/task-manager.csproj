@@ -238,8 +238,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL\CustomerBLL.cs" />
+    <Compile Include="BLL\WorkspaceBLL.cs" />
     <Compile Include="DAL\CustomerDAL.cs" />
     <Compile Include="DAL\DatabaseConnection.cs" />
+    <Compile Include="DAL\WorkspaceDAL.cs" />
     <Compile Include="Entities\CustomerEnti.cs" />
     <Compile Include="Entities\TaskEnti.cs" />
     <Compile Include="Entities\WorkspaceEnti.cs" />

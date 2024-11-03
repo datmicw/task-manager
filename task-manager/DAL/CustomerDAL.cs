@@ -11,8 +11,6 @@ namespace task_manager.DAL
         {
             databaseConnection = new DatabaseConnection();
         }
-
-        // Thêm khách hàng mới vào cơ sở dữ liệu
         public void AddCustomer(CustomerEnti customer)
         {
             using (SqlConnection connection = databaseConnection.GetConnection())

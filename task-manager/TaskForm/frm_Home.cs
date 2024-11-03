@@ -6,6 +6,7 @@ using ComponentFactory.Krypton.Toolkit;
 using task_manager.BLL;
 using task_manager.DAL;
 using task_manager.Entities;
+using static task_manager.frm_Login;
 
 namespace task_manager
 {
@@ -13,7 +14,6 @@ namespace task_manager
     {
         private WorkspaceBLL workspaceBLL;
         private WorkspaceDAL workspaceDAL;
-
         public frm_Home()
         {
             InitializeComponent();
@@ -23,14 +23,15 @@ namespace task_manager
 
         private void frm_Home_Load(object sender, EventArgs e)
         {
-            LoadWorkspacesAsButtons(); // Tải danh sách workspace khi form được load
+            LoadWorkspacesAsButtons(); 
         }
 
         public void LoadWorkspacesAsButtons()
         {
-            flowLayoutPanelWorkspaces.Controls.Clear(); // Xóa các button cũ
+            flowLayoutPanelWorkspaces.Controls.Clear();
 
-            List<WorkspaceEnti> workspaces = workspaceDAL.GetAllWorkspace(); // Lấy danh sách workspace
+            List<WorkspaceEnti> workspaces = workspaceDAL.GetAllWorkspace(GlobalData.LoggedInCustomerID);
+
             foreach (var workspace in workspaces)
             {
                 Button workspaceButton = new Button
@@ -45,18 +46,20 @@ namespace task_manager
 
                 workspaceButton.Click += (sender, e) =>
                 {
-                    MessageBox.Show($"Bạn đã nhấn vào workspace: {workspace.Name}");
+                    frm_Task frm_Task = new frm_Task();
+                    frm_Task.ShowDialog();
                 };
 
-                flowLayoutPanelWorkspaces.Controls.Add(workspaceButton); // Thêm button vào FlowLayoutPanel
+                flowLayoutPanelWorkspaces.Controls.Add(workspaceButton);
             }
         }
+
 
         private void btn_addWorkspace_Click(object sender, EventArgs e)
         {
             frm_Workspace frm_Workspace = new frm_Workspace();
-            frm_Workspace.WorkspaceAdded += LoadWorkspacesAsButtons; // Đăng ký lắng nghe sự kiện
-            frm_Workspace.ShowDialog(); // Mở form tạo workspace
+            frm_Workspace.WorkspaceAdded += LoadWorkspacesAsButtons; 
+            frm_Workspace.ShowDialog(); 
         }
     }
 }

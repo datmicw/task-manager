@@ -28,30 +28,35 @@ namespace task_manager.DAL
                 }
             }
         }
-        public List<WorkspaceEnti> GetAllWorkspace()
+        public List<WorkspaceEnti> GetAllWorkspace(int customerId)
         {
-            var workspace = new List<WorkspaceEnti>();
+            var workspaces = new List<WorkspaceEnti>();
             using (SqlConnection connection = databaseConnection.GetConnection())
             {
-                string query = "SELECT Name FROM Workspace";
+                string query = "SELECT Name, CustomerID FROM Workspace WHERE CustomerID = @CustomerID";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
+                    // Thêm tham số CustomerID
+                    command.Parameters.AddWithValue("@CustomerID", customerId);
+
                     connection.Open();
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            var workspace1 = new WorkspaceEnti
+                            var workspace = new WorkspaceEnti
                             {
                                 Name = reader.GetString(reader.GetOrdinal("Name")),
+                                CustomerID = Convert.ToInt32(reader["CustomerID"]),
                             };
-                            workspace.Add(workspace1);
+                            workspaces.Add(workspace);
                         }
                     }
                 }
             }
-            return workspace;
+            return workspaces;
         }
+
 
     }
 }

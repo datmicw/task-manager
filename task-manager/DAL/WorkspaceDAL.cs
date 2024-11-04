@@ -12,7 +12,7 @@ namespace task_manager.DAL
         {
             databaseConnection = new DatabaseConnection();
         }
-        public void AddWorkspace(WorkspaceEnti workspaceEnti)
+        public int AddWorkspace(WorkspaceEnti workspaceEnti)
         {
             using (SqlConnection connection = databaseConnection.GetConnection())
             {
@@ -24,7 +24,9 @@ namespace task_manager.DAL
                     command.Parameters.AddWithValue("@CustomerId", workspaceEnti.CustomerID);
                     connection.Open();
                     command.ExecuteNonQuery();
+                    int newWorkspaceId = (int)command.ExecuteScalar();
                     connection.Close();
+                    return newWorkspaceId;
                 }
             }
         }
@@ -33,7 +35,7 @@ namespace task_manager.DAL
             var workspaces = new List<WorkspaceEnti>();
             using (SqlConnection connection = databaseConnection.GetConnection())
             {
-                string query = "SELECT Name, CustomerID FROM Workspace WHERE CustomerID = @CustomerID";
+                string query = "SELECT ID, Name, CustomerID FROM Workspace WHERE CustomerID = @CustomerID";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     // Thêm tham số CustomerID
@@ -46,6 +48,7 @@ namespace task_manager.DAL
                         {
                             var workspace = new WorkspaceEnti
                             {
+                                Id = Convert.ToInt32(reader["ID"]),
                                 Name = reader.GetString(reader.GetOrdinal("Name")),
                                 CustomerID = Convert.ToInt32(reader["CustomerID"]),
                             };
@@ -57,6 +60,7 @@ namespace task_manager.DAL
             return workspaces;
         }
 
+        
 
     }
 }

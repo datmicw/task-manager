@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Security.Cryptography.X509Certificates;
 using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
 using task_manager.BLL;
@@ -18,7 +19,10 @@ namespace task_manager
             workspaceBLL = new WorkspaceBLL();
             workspaceDAL = new WorkspaceDAL();
         }
-
+        public static class GloWorkspace
+        {
+            public static string WorkspaceName;
+        }
         private void btn_create_w_Click(object sender, EventArgs e)
         {
             var workspace = new WorkspaceEnti
@@ -30,6 +34,7 @@ namespace task_manager
             try
             {
                 workspaceBLL.AddWorkspace(workspace);
+                GloWorkspace.WorkspaceName = workspace.Name;
                 MessageBox.Show("Workspace added successfully");
                 WorkspaceAdded?.Invoke();
                 this.Close();
@@ -38,6 +43,11 @@ namespace task_manager
             {
                 MessageBox.Show("An error occurred: " + ex.Message);
             }
+        }
+
+        private void kryptonPalette1_PalettePaint(object sender, PaletteLayoutEventArgs e)
+        {
+
         }
     }
 }

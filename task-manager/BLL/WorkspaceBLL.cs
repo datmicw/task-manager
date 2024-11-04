@@ -11,9 +11,9 @@ namespace task_manager.BLL
         {
             workspaceDAL = new WorkspaceDAL();
         }
-        public void AddWorkspace(WorkspaceEnti workspace) { 
-            ValidateWorkspace(workspace);
-            workspaceDAL.AddWorkspace(workspace);
+        public int AddWorkspace(WorkspaceEnti workspace)
+        {
+            return workspaceDAL.AddWorkspace(workspace);
         }
         private void ValidateWorkspace(WorkspaceEnti workspace)
         {

@@ -33,7 +33,7 @@ namespace task_manager.DAL
             CustomerEnti customer = null;
             using (SqlConnection connection = databaseConnection.GetConnection())
             {
-                string query = "SELECT ID, EMAIL, PASSWORD FROM CUSTOMER WHERE EMAIL = @Email";
+                string query = "SELECT ID, NAME, EMAIL, PASSWORD FROM CUSTOMER WHERE EMAIL = @Email";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@Email", email);
@@ -46,6 +46,7 @@ namespace task_manager.DAL
                             {
                                 Id = Convert.ToInt32(reader["ID"]),
                                 Email = reader["EMAIL"].ToString(),
+                                Name = reader["NAME"].ToString(),
                                 Password = reader["PASSWORD"].ToString()
                             };
                         }

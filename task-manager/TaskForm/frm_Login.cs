@@ -34,6 +34,7 @@ namespace task_manager
         public static class GlobalData
         {
             public static int LoggedInCustomerID;
+            public static string LoggedInCustomerName;
         }
 
         private void btn_Login_Click(object sender, EventArgs e)
@@ -58,6 +59,7 @@ namespace task_manager
                 if (isPasswordValid)
                 {
                     GlobalData.LoggedInCustomerID = CheckCustomer.Id;
+                    GlobalData.LoggedInCustomerName = CheckCustomer.Name;
                     frm_Home frm_Home = new frm_Home();
                     frm_Home.Show();
                     this.Hide();

@@ -59,6 +59,7 @@
             this.kryptonTextBox8 = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.kryptonTextBox9 = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.kryptonButton14 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.lb_NameCustomer = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             this.kryptonPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -451,7 +452,7 @@
             // 
             // kryptonTextBox7
             // 
-            this.kryptonTextBox7.Location = new System.Drawing.Point(323, 93);
+            this.kryptonTextBox7.Location = new System.Drawing.Point(326, 86);
             this.kryptonTextBox7.Name = "kryptonTextBox7";
             this.kryptonTextBox7.Size = new System.Drawing.Size(52, 26);
             this.kryptonTextBox7.StateCommon.Border.Color1 = System.Drawing.Color.White;
@@ -465,7 +466,7 @@
             // 
             // kryptonTextBox8
             // 
-            this.kryptonTextBox8.Location = new System.Drawing.Point(541, 93);
+            this.kryptonTextBox8.Location = new System.Drawing.Point(542, 86);
             this.kryptonTextBox8.Name = "kryptonTextBox8";
             this.kryptonTextBox8.Size = new System.Drawing.Size(91, 26);
             this.kryptonTextBox8.StateCommon.Border.Color1 = System.Drawing.Color.White;
@@ -509,12 +510,22 @@
             this.kryptonButton14.TabIndex = 44;
             this.kryptonButton14.Values.Text = "What\'s New";
             // 
+            // lb_NameCustomer
+            // 
+            this.lb_NameCustomer.Location = new System.Drawing.Point(378, 90);
+            this.lb_NameCustomer.Name = "lb_NameCustomer";
+            this.lb_NameCustomer.Size = new System.Drawing.Size(49, 19);
+            this.lb_NameCustomer.StateCommon.ShortText.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_NameCustomer.TabIndex = 45;
+            this.lb_NameCustomer.Values.Text = "estfdd";
+            // 
             // frm_Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lb_NameCustomer);
             this.Controls.Add(this.kryptonButton14);
             this.Controls.Add(this.kryptonTextBox9);
             this.Controls.Add(this.kryptonTextBox8);
@@ -582,5 +593,6 @@
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox kryptonTextBox9;
         private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton14;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelWorkspaces;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel lb_NameCustomer;
     }
 }

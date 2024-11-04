@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AdvancedPageDragAndDrop">
+      <HintPath>C:\Users\datmi\Downloads\Krypton-master\Krypton-master\Bin\AdvancedPageDragAndDrop.exe</HintPath>
+    </Reference>
     <Reference Include="BCrypt.Net-Next, Version=4.0.3.0, Culture=neutral, PublicKeyToken=1e11be04b6288443, processorArchitecture=MSIL">
       <HintPath>..\packages\BCrypt.Net-Next.4.0.3\lib\net48\BCrypt.Net-Next.dll</HintPath>
     </Reference>
@@ -238,9 +241,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL\CustomerBLL.cs" />
+    <Compile Include="BLL\TaskBLL.cs" />
     <Compile Include="BLL\WorkspaceBLL.cs" />
     <Compile Include="DAL\CustomerDAL.cs" />
     <Compile Include="DAL\DatabaseConnection.cs" />
+    <Compile Include="DAL\TaskDAL.cs" />
     <Compile Include="DAL\WorkspaceDAL.cs" />
     <Compile Include="Entities\CustomerEnti.cs" />
     <Compile Include="Entities\TaskEnti.cs" />

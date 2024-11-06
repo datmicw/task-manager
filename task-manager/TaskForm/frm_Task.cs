@@ -22,7 +22,7 @@ namespace task_manager
         {
             InitializeComponent();
             this.WorkspaceName = workspaceName;
-            this.WorkspaceID = workspaceID; 
+            this.WorkspaceID = workspaceID;
             taskDAL = new TaskDAL();
             taskBLL = new TaskBLL();
         }
@@ -46,20 +46,19 @@ namespace task_manager
             {
                 CustomerId = GlobalData.LoggedInCustomerID,
                 Title = txt_AddText.Text,
-                WorkspaceId = this.WorkspaceID 
+                WorkspaceId = this.WorkspaceID
             };
 
             try
             {
-                taskDAL.AddTask(task); 
+                taskDAL.AddTask(task);
                 KryptonMessageBox.Show("Task added successfully");
-                txt_AddText.Text = string.Empty; 
-                LoadTask(); 
+                txt_AddText.Text = string.Empty;
+                LoadTask();
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Error adding task: {ex.Message}");
-                MessageBox.Show("An error occurred: " + ex.Message);
             }
         }
 
@@ -67,7 +66,7 @@ namespace task_manager
         {
             flowLayoutPanel1.AutoScroll = true;
 
-            flowLayoutPanel1.Controls.Clear(); 
+            flowLayoutPanel1.Controls.Clear();
 
             int customerId = GlobalData.LoggedInCustomerID;
             int workspaceId = this.WorkspaceID;
@@ -84,7 +83,7 @@ namespace task_manager
                     Height = 30,
                     Margin = new Padding(5),
                     TextAlign = ContentAlignment.MiddleCenter,
-                    ForeColor = Color.Black, 
+                    ForeColor = Color.Black,
                     BackColor = Color.LightGray,
                     Font = new Font("Arial", 10, FontStyle.Regular)
                 };

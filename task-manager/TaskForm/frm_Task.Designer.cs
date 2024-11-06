@@ -37,6 +37,9 @@
             this.lb_OwnerName = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.lb_WorkspaceName = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.btn_Example = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.ContextMenu = new ComponentFactory.Krypton.Toolkit.KryptonContextMenu();
+            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // kryptonPalette1
@@ -127,11 +130,28 @@
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.Controls.Add(this.btn_Example);
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(176, 47);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(488, 338);
             this.flowLayoutPanel1.TabIndex = 46;
+            // 
+            // btn_Example
+            // 
+            this.btn_Example.Location = new System.Drawing.Point(3, 3);
+            this.btn_Example.Name = "btn_Example";
+            this.btn_Example.Size = new System.Drawing.Size(478, 32);
+            this.btn_Example.StateCommon.Back.Color1 = System.Drawing.Color.White;
+            this.btn_Example.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btn_Example.StateCommon.Border.Color1 = System.Drawing.Color.RosyBrown;
+            this.btn_Example.StateCommon.Border.Color2 = System.Drawing.Color.IndianRed;
+            this.btn_Example.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btn_Example.StateCommon.Border.Rounding = 12;
+            this.btn_Example.TabIndex = 47;
+            this.btn_Example.Values.Text = "ADD";
             // 
             // frm_Task
             // 
@@ -156,6 +176,7 @@
             this.StateCommon.Back.Color2 = System.Drawing.Color.White;
             this.Text = "TASK";
             this.Load += new System.EventHandler(this.frm_Task_Load);
+            this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -171,5 +192,7 @@
         private ComponentFactory.Krypton.Toolkit.KryptonLabel lb_OwnerName;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel lb_WorkspaceName;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btn_Example;
+        private ComponentFactory.Krypton.Toolkit.KryptonContextMenu ContextMenu;
     }
 }
